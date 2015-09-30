@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <title>SHOW内容发布生产平台</title>
+    <link rel="stylesheet" type="text/css" href="style/common.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="style/imgareaselect-default.css"/>
+</head>
+<body>
+<div class="bs-header">
+    <a class="qs-logo" href="#"><img src="images/qs-logo.png" alt=""/></a>
+    <div class="qs-user">
+        <img src="temp/img_50X50.jpg" alt=""/>
+        <div class="info">
+            <p class="name">小妹猪猪侠</p>
+            <p class="sign">生活小能手</p>
+        </div>
+        <div class="status">
+            <div class="sta"><span>已认证</span></div>
+            <a href="#">退出</a>
+        </div>
+    </div>
+</div>
+<div class="bs-wrap qs-wrap">
+    <div class="qs-infor-edit">
+        <div class="qs-banner"><img src="images/img-banner.jpg" alt=""/></div>
+        <div class="qs-infor">
+            <ul class="infor-step step2">
+                <li>1.账户属性选择</li>
+                <li class="cur">2.账户基本信息编辑</li>
+            </ul>
+            <div class="user-pro">
+                <dl class="clearfix">
+                    <dt>头像设置：</dt>
+                    <dd>
+                        <div class="img-edit">
+                            <p class="upload-img">
+                                <a href="javascript:;">点击上传</a>
+                                <input type="file" name="file" id="uploadImg"/>
+                            </p>
+                            <div class="edit-wrap clearfix">
+                                <div class="cut-pic">
+                                    <div class="cut-wrap" id="cutPicWrap">
+                                        <div class="pic"><img id="oldImg" src="" /></div>
+                                    </div>
+                                    <p class="choose-tip">建议尺寸：120*120，格式：png/jpg/jpeg</p>
+                                </div>
+                                <div class="browse-pic">
+                                    <div class="pic"><img id="newImg" src="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>昵称设置：</dt>
+                    <dd>
+                        <input class="qs-user-inp" type="text" maxlength="12"/>
+                        <p class="choose-tip">(12个汉字.字母之内)</p>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                    <dt>个性签名设置：</dt>
+                    <dd>
+                        <input class="qs-user-inp" type="text" maxlength="12"/>
+                        <p class="choose-tip">(12个汉字.字母之内)</p>
+                    </dd>
+                </dl>
+
+                <dl class="clearfix">
+                    <dt></dt>
+                    <dd><button type="submit" class="submit-btn">提交</button></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="script/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="script/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="script/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="script/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="script/jquery.fileupload.js"></script>
+<script type="text/javascript" src="script/SERVE.com.js"></script>
+<script type="text/javascript" src="script/SERVE.bs.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var _imgUploadUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/image/uploadImage.do";//图片上传地址
+        var _imgCutUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/account/edit.do";//图片裁剪地址
+        var _imgArea;
+        //上传图片
+        $("#uploadImg").fileupload({
+            url:_imgUploadUrl,
+            dataType:"json",
+            done:function(e,result){
+                var _result = result.result.data;
+                if(_result){
+                    $("#oldImg").attr("src",_result.url).removeAttr("style");
+                    $("#newImg").attr("src",_result.url).removeAttr("style");
+                    $("#uploadImg").prev().html("重新上传");
+                    setTimeout(function(){
+                        _imgArea = SERVE.bs.imgArea('oldImg','newImg','cutPicWrap',120,120,_result.mark);
+                    },200);
+                }
+            }
+        });
+        //图片裁剪
+        $(".submit-btn").on('click',function(){
+            var _area = _imgArea.getData();
+            console.log(_area);
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                url:_imgCutUrl+"?srcPath="+_area.mark+"&startX="+_area.cropLeft+"&startY="+_area.cropTop+"&width="+_area.cropWidth+"&height="+_area.cropHeight,
+                success:function(result){
+                    var _result = result.data;
+                    if(_result){
+                        console.log(_result);
+                    }
+                },
+                error:function(){}
+            });
+        });
+    })
+</script>
+</body>
+</html>

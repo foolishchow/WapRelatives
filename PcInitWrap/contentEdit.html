@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <title>SHOW内容发布生产平台</title>
+    <link rel="stylesheet" type="text/css" href="style/common.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="style/pcmobile-reset.css"/>
+    <link rel="stylesheet" type="text/css" href="style/base.css"/>
+    <link rel="stylesheet" type="text/css" href="style/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="style/imgareaselect-default.css"/>
+
+</head>
+<body>
+<div class="bs-header">
+    <div class="bs-header-btn">
+        <a class="back" href="#">&lt;&nbsp;返回</a>
+        <a class="release" id="contentRelease" href="javascript:;">发布</a>
+        <a class="save" id="contentSave" href="javascript:;">保存</a>
+        <a class="preview" id="contentPre" href="javascript:;">预览</a>
+    </div>
+</div>
+<div class="bs-wrap clearfix">
+    <div class="bs-main">
+        <div class="content-tit">
+            <input type="text" id="contentTitle" placeholder="请输入内容主题"/>
+        </div>
+        <div class="bs-content bs-content-cols clearfix">
+
+         
+
+  
+            <!--模拟器居中-->
+            <div class="simulator">
+                <div class="sn-nav sn-block">
+                    <div class="sn-nav-back"><a class="sn-iconbtn" href="#">返回</a></div>
+                    <div class="sn-nav-title of">内容详情</div>
+                </div>
+                <div class="editArea main-wrap">
+                    <div id="modWrap" class="region J_Region regionp">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--话题[[-->
+           <div class="simulator" >
+                <div class="sn-nav sn-block">
+                    <div class="sn-nav-back"><a class="sn-iconbtn" href="#">返回</a></div>
+                    <div class="sn-nav-title of">话题</div>
+                </div>
+                <div class="editArea main-wrap" >
+                      <div id="topicWrap" class="topic-wrap">
+                         <input type="text" placeholder="话题搜索" id="topicName">
+                         <div id="topicList">
+                             
+                         </div>
+                     </div>
+                    
+                </div>
+            </div>
+               <!--话题]]-->
+
+            <!--关联内容[[-->
+           <div class="simulator">
+                <div class="sn-nav sn-block">
+                    <div class="sn-nav-back"><a class="sn-iconbtn" href="#">返回</a></div>
+                    <div class="sn-nav-title of">关联内容</div>
+                </div>
+                <div class="editArea main-wrap">
+                      <div id="relationWrap" class="relation-wrap">
+                         <ul class="relation-content-list">
+                           <!--   <li><img src="images/img_thumb_single_row.png" width="80" height="80"><em><i class="del-relation"></i></em></li>
+                             <li><img src="images/img_thumb_single_row.png" width="80" height="80"><em><i></i></em></li>
+                             <li><img src="images/img_thumb_single_row.png" width="80" height="80"></li> -->
+                         </ul>
+                         <a href="javascript:void(0);" class="c-blue" id="addRelation">添加内容</a>
+                     </div>
+                </div>
+            </div>
+             <!--关联内容]]-->
+
+
+
+        </div>
+    </div>
+    <!--需要生成的模块 隐藏于页面中-->
+    <div class="J_createMod">
+        <div class="J_CMod J_MM" rel="1">
+            <div class="generateWrap">
+                <div class="the-shop-middle-con"><h3 class="shop-component-tit floor-title"><span><em>标题</em></span></h3></div>
+            </div>
+        </div>
+        <div class="J_CMod J_MM" rel="2">
+            <div class="generateWrap">
+                <div class="the-shop-middle-con"><div class="announcement-con"><span>默认文本</span></div></div>
+            </div>
+        </div>
+        <div class="J_CMod J_MM" rel="3">
+            <div class="generateWrap">
+                <div class="singer-banner"><a href="#"><img src="images/img_singleActive2.png" alt=""/></a></div>
+            </div>
+        </div>
+         <div class="J_CMod J_MM" rel="4">
+           
+        </div>
+         <div class="J_CMod J_MM" rel="5">
+            <div class="generateWrap">
+                <div class="singer-banner"><a href="#"><img src="images/video_singleActive2.png" alt=""/></a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-menu bs-menu-inner">
+        <div class="sideNav_toggle">
+            <div class="target">文字组件<i></i></div>
+            <div class="sideMod_wrap">
+                <div class="region J_Region">
+                    <div class="J_Mod J_MM" rel="1">
+                        <div class="sWidget textWidget">
+                            <div class="pic"><img src="images/img_thumb_title.png" /></div>
+                            <p>标题</p>
+                        </div>
+                    </div>
+                    <div class="J_Mod J_MM" rel="2">
+                        <div class="sWidget textWidget">
+                            <div class="pic"><img src="images/img_thumb_text.png" /></div>
+                            <p>文本</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="target">图片组件<i></i></div>
+            <div class="sideMod_wrap">
+                <div class="region J_Region">
+                    <div class="J_Mod J_MM" rel="3">
+                        <div class="sWidget picWidget">
+                            <div class="pic"><img src="images/img_thumb_single_row.png" /></div>
+                            <p>图片</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+         <div class="target">视频组件<i></i></div>
+            <div class="sideMod_wrap">
+                <div class="region J_Region">
+                    <div class="J_Mod J_MM" rel="5">
+                        <div class="sWidget picWidget">
+                            <div class="pic">
+                                <img src="images/video-ico.png"  width="50" height="50"/>
+                            </div>
+                            <p>视频</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bs-edit-wrap">
+        <!--标题设置 [[-->
+        <div class="bs-edit hide">
+            <div class="edit-title">标题设置</div>
+            <div class="editContent">
+                <div class="sideEdit forms">
+                    <ul>
+                        <li>
+                            <div class="dt"><label>设置标题</label></div>
+                            <div class="dd">
+                                <input type="text" class="wordCtrl ipt placeholder" id="editTitleInp" value=""/>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn-wrap">
+                        <a href="javascript:void(0);" class="btn btn-yellow" id="editTitleSave">保存</a>
+                    </div>
+                    <div class="overall-tips overall-suc-tips hide">保存成功！</div>
+                    <div class="overall-tips overall-error-tips hide">请输入标题内容！</div>
+                </div>
+            </div>
+        </div>
+        <!--标题设置 ]]-->
+        <!--文本设置 [[-->
+        <div class="bs-edit hide">
+            <div class="edit-title">文本设置</div>
+            <div class="editContent">
+                <div class="sideEdit forms">
+                    <ul>
+                        <li>
+                            <div class="dt"><label>设置文本内容</label><span class="static"><em>0</em>/2000</span></div>
+                            <div class="dd">
+                                <textarea cols="60" rows="4" class="ipt textarea placeholder" id="editTextInp"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn-wrap">
+                        <a href="javascript:void(0);" class="btn btn-yellow" id="editTextSave">保存</a>
+                    </div>
+                    <div class="overall-tips overall-suc-tips hide">保存成功！</div>
+                    <div class="overall-tips overall-error-tips hide">请输入文本内容！</div>
+                </div>
+            </div>
+        </div>
+        <!--文本设置 ]]-->
+        <!--图片设置 [[-->
+        <div class="bs-edit hide">
+            <div class="edit-title">图片设置</div>
+            <div class="editContent">
+                <div class="single-activity sideEdit">
+                    <div class="msg">
+                        <p>图片尺寸：750x750px   图片大小：100kb以内</p>
+                        <p>图片类型：jpg、jpeg、png、gif,推荐jpg</p>
+                    </div>
+                    <ul>
+                        <li id="chooseImage">
+                            <div class="pic"><a class="add_pic" href="javascript:void(0);"><span><i>添加图片</i></span></a></div>
+
+                        </li>
+                        <li id="reChooseImage">
+                            <div class="pic haspic"><a class="add_pic" href="javascript:void(0);"><span><i>重新上传</i></span><img src="" /></a></div>
+                        </li>
+                        <li>
+                            <div class="add-pic-btn"><a href="###" class="r sel" id="get-pro-pic">点击获取商品图片</a></div>
+                            <div class="dd">
+                                <input id="imgProductCode" type="text" class="wordCtrl ipt" placeholder="商品编码"/>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dd">
+                                <input id="imgVenderCode" type="text" class="wordCtrl ipt" placeholder="供应商编码"/>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="dd">
+                                <input id="imgPrice" type="text" class="wordCtrl ipt" readonly="true" placeholder="商品价格"/>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div id="addTags" class="btn_addTag"><i>添加标签</i></div>
+                    <div class="btn-wrap">
+                        <a href="javascript:void(0);" class="btn btn-yellow" id="editPicSave">保存</a>
+                    </div>
+                    <div class="overall-tips overall-suc-tips hide">保存成功！</div>
+                    <div class="overall-tips overall-error-tips hide">请添加图片！</div>
+                </div>
+            </div>
+        </div>
+        <!--图片设置 ]]-->
+        <div class="bs-edit hide"></div>
+          <!--视频设置 [[-->
+        <div class="bs-edit hide">
+            <div class="edit-title">视频设置</div>
+            <div class="editContent">
+                <div class="single-activity sideEdit">
+                    <div class="msg">
+                        <p>视频大小：100kb以内</p>
+                        <p>视频类型：jpg、jpeg、png、gif,推荐jpg</p>
+                    </div>
+                    <ul>
+                        <li id="chooseImageVideo">
+                            <div class="pic"><a class="add_pic" href="javascript:void(0);"><span><i>添加图片</i></span></a></div>
+                        </li>
+                        <li id="reChooseImageVideo">
+                            <div class="pic haspic"><a class="add_pic" href="javascript:void(0);"><span><i>重新上传</i></span><img src="" /></a></div>
+                        </li>
+                        <li>
+                            <div class="dd">
+                                <input id="videoLink" type="text" class="wordCtrl ipt" placeholder="视频链接"/>
+                            </div>
+                        </li>
+                    </ul>
+
+                   <!--  <div id="addTagsVideo" class="btn_addTag"><i>添加标签</i></div> -->
+                    <div class="btn-wrap">
+                        <a href="javascript:void(0);" class="btn btn-yellow" id="editVideoSave">保存</a>
+                    </div>
+                    <div class="overall-tips overall-suc-tips hide">保存成功！</div>
+                    <div class="overall-tips overall-error-tips hide">请添加视频！</div>
+                </div>
+            </div>
+        </div>
+        <!--视频设置 ]]-->
+    </div>
+</div>
+<!--图片裁切--弹出框-->
+<div class="pop-box pop-edit-pic">
+    <div class="pop-box-bg"></div>
+    <div class="pop-box-title">编辑图片<a onClick="SERVE.com.closebox('.pop-edit-pic');" class="close" href="javascript:void(0);"></a></div>
+    <div class="pop-box-main">
+        <div class="choose-img">
+            <a href="javascript:;">选择图片</a>
+            <input type="file" name="file" id="uploadImg" multiple>
+        </div>
+        <div class="clearfix">
+            <div class="cut-pic">
+                <h3>裁剪</h3>
+                <div class="cut-wrap" id="cutPicWrap">
+                    <div class="pic"><img id="oldImg" src="temp/img_750X750.jpg" /></div>
+                </div>
+            </div>
+            <div class="browse-pic">
+                <h3>预览</h3>
+                <div class="pic"><img id="newImg" src="temp/img_750X750.jpg" /></div>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <a class="JS_editPic btn btn-yellow" id="editImgSure" href="javascript:void(0);">确认</a>
+            <a class="btn close" href="javascript:void(0);" onClick="SERVE.com.closebox('.pop-edit-pic');">取消</a>
+        </div>
+    </div>
+</div>
+<!--图片标签编辑--弹出框-->
+<div class="pop-box pop-edit-tag">
+    <div class="pop-box-bg"></div>
+    <div class="pop-box-title">编辑图片标签<a onClick="SERVE.com.closebox('.pop-edit-tag');" class="close" href="javascript:void(0);"></a></div>
+    <div class="pop-box-main">
+        <div class="clearfix">
+            <div class="img-tag-wrap" id="imgTagWrap">
+                <h3>标签预览</h3>
+                <div class="img-tag-main">
+                    <img src="temp/img_750X750.jpg" alt=""/>
+                </div>
+                <p class="tag-tip">提示：拖动标签调整位置</p>
+            </div>
+            <div class="img-tag-edit" id="imgTagEdit">
+                <h3>标签编辑</h3>
+                <p class="tag-type">
+                    <input type="radio" name="tagType" id="tagType01" value="1" checked/>
+                    <label for="tagType01">品牌标签</label>
+                    <input type="radio" name="tagType" id="tagType02" value="2"/>
+                    <label for="tagType02">说说标签</label>
+                    <input type="radio" name="tagType" id="tagType03" value="3"/>
+                    <label for="tagType03">位置标签</label>
+                </p>
+                <p class="tag-con">
+                    <input class="ipt" type="text" placeholder="标签内容" maxlength="10"/>
+                    <button type="submit">添加</button>
+                </p>
+                <div class="overall-tips overall-error-tips hide">请添加图片！</div>
+                <ul class="tag-list">
+
+                </ul>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <a class="btn btn-yellow" id="tagEditSubmit" href="javascript:void(0);">确认</a>
+            <a class="btn close" href="javascript:void(0);" onClick="SERVE.com.closebox('.pop-edit-tag');">取消</a>
+        </div>
+    </div>
+</div>
+<!--预览--弹出框-->
+<div class="pop-box pop-preview">
+    <div class="pop-box-bg"></div>
+    <a onClick="SERVE.com.closebox('.pop-preview');" class="close" href="javascript:void(0);"></a>
+    <div class="pop-box-main">
+        <div class="mobileMOdel">
+            <div class="mtop"></div>
+            <div class="mContent">
+                <div class="displayArea">
+                    <div class="sn-nav sn-block">
+                        <div class="sn-nav-back"><a class="sn-iconbtn" href="#">返回</a></div>
+                        <div class="sn-nav-title of">店铺名称</div>
+                    </div>
+
+                    <div class="main-wrap">
+                        <div class="region regionp" id="preRegion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mbottom"></div>
+        </div>
+    </div>
+</div>
+<!--提示信息--弹出框-->
+<div class="pop-box pop-tips">
+    <div class="pop-box-bg"></div>
+    <div class="pop-box-title">提示<a onClick="SERVE.com.closebox('.pop-tips');" class="close" href="javascript:void(0);"></a></div>
+    <div class="pop-box-main">
+        <div class="save-tips">保存成功！</div>
+        <div class="btn-wrap"><a href="javascript:void(0);" onClick="SERVE.com.closebox('.pop-tips');" class="btn-yellow btn">确认</a></div>
+    </div>
+</div>
+
+
+<!--关联内容--弹出框-->
+<div class="pop-box pop-relation-wrap">
+    <div class="pop-box-bg"></div>
+    <div class="pop-box-title">增加关联内容<a onClick="SERVE.com.closebox('.pop-relation-wrap');" class="close" href="javascript:void(0);"></a></div>
+    <div class="pop-box-main">
+        <div id="relationList">
+            
+        </div>
+         <div class="pop-page"></div>
+         <div style="clear:both"></div>
+        
+        <div class="btn-wrap">
+            <a class="JS_editPic btn btn-yellow" id="confirmRelation" href="javascript:void(0);">确定关联</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="script/jquery-1.7.1.js"></script>
+<script type="text/javascript">
+    var _country, _province, _city, _region, _location;
+  $.ajax({
+        url:'http://api.map.baidu.com/location/ip',
+        dataType:'jsonp',
+        data:{ak:"76406f0e885f271756c4d5298df5806b",coor:"bd09ll"},
+        type:'get',
+        success:function(result){
+            if (result && result.status == 0) {
+                try {
+                    _country = result.address.substr(0, 2) == 'CN' ? '中国' : '';
+                    _province = result.content.address_detail.province;
+                    _city = result.content.address_detail.city;
+                    _region = result.content.address_detail.district;
+                    _location = result.content.point.y + "," + result.content.point.x;
+                } catch (e) {}
+            }
+        }
+        })
+</script>
+
+<script type="text/javascript">
+    var _contentId = 904;
+    var _isSOP = 1;
+    var _content = {};//内容数据
+    var _moudleList = [];//组件数据
+    var _contentUrl = "content.json";//内容数据地址
+  //  var _imgUploadUrl = "http://sop.mzmssit.cnsuning.com/mzms-web/show/produce/image/uploadImage.do";//图片上传地址
+    var _imgUploadUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/image/uploadImage.do"
+   // var _imgCutUrl = "http://sop.mzmssit.cnsuning.com/mzms-web/show/produce/content/imageCut.do";//图片裁剪地址
+    var _imgCutUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/content/imageCut.do";//图片裁剪地址
+    var _contentSureUrl = "http://sop.mzmssit.cnsuning.com/mzms-web/show/produce/content/publish.do";//内容保存发布地址
+    var _topicUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/content/topic/";//话题搜索地址
+    var _relationUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/content/relList/";//关联内容地址
+    var _delRelationUrl = "http://mzmssit.cnsuning.com/mzms-admin/show/produce/content/delContentRel/";//删除关联内容地址
+    var _isChange = false;//内容是否修改
+
+  
+    if(_contentId == undefined){
+        _content = {
+            "id": _contentId,
+            "title": "",
+            "topicId": "",
+            "topicName": "",
+            "relContents":[],
+            "country": "",
+            "prov": "",
+            "city": "",
+            "region": "",
+            "compons": []
+        };
+        _moudleList = _content.compons;
+    }else{
+        $.ajax({
+            type:"get",
+            url:_contentUrl,
+            dataType:"json",
+            success:function(data){
+                _content = data;
+                _moudleList = _content.compons;
+                //组件数据初始化
+                $("#contentTitle").val(_content.title);
+                //话题名称
+                $("#topicName").val(_content.topicName);
+                //关联内容 
+                var relStr = "";
+            
+                for(var i = 0, len = _content.relContents.length; i < len; i++){
+                    relStr += '<li data-id="'+_content.relContents[i].id+'">';
+                    relStr += '<p class="rel-title">'+ _content.relContents[i].title +'</p>';
+                    var compons = _content.relContents[i].compons;
+                    for(var j = 0, len2 = compons.length; j < len2; j++ ){
+                          relStr += '<img src="'+ compons[j].smallImageUrl +'" width="80" height="80">';
+                    }
+                   relStr += '<span class="btn-wrap del-wrap"><span class="btn btn-yellow del-relation">删除</span></span>';
+                   relStr += '</li>';
+
+                 }
+                $(".relation-content-list").html("").append(relStr);
+                if(_moudleList && _moudleList.length > 0){
+                    for(var i=0;i<_moudleList.length;i++){
+                        var _nMod = '';
+                        switch (_moudleList[i].type){
+                            case 1:
+                                _moudleList[i].text = _moudleList[i].text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                                _nMod = '<div class="J_CMod J_MM" rel="1">'+
+                                            '<div class="generateWrap">'+
+                                                '<div class="the-shop-middle-con"><h3 class="shop-component-tit floor-title"><span><em>'+_moudleList[i].text+'</em></span></h3></div>'+
+                                            '</div>'+
+                                        '</div>';
+                                break;
+                            case 2:
+                                _moudleList[i].text = _moudleList[i].text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                                _nMod = '<div class="J_CMod J_MM" rel="2">'+
+                                            '<div class="generateWrap">'+
+                                                '<div class="the-shop-middle-con"><div class="announcement-con"><span>'+_moudleList[i].text+'</span></div></div>'+
+                                            '</div>'+
+                                        '</div>';
+                                break;
+                            case 3:
+                                _nMod = '<div class="J_CMod J_MM" rel="3">'+
+                                            '<div class="generateWrap">'+
+                                                '<div class="singer-banner"><a href="#"><img src="'+_moudleList[i].imageUrl+'" alt=""/></a></div>'+
+                                            '</div>'+
+                                        '</div>';
+                                break;
+                            case 5:
+                                _nMod = '<div class="J_CMod J_MM" rel="5">'+
+                                            '<div class="generateWrap">'+
+                                                '<div class="singer-banner"><a href="#"><img src="'+_moudleList[i].imageUrl+'" alt=""/></a></div>'+
+                                            '</div>'+
+                                        '</div>';
+                           break;
+
+                        }
+
+                        $('#modWrap').append(_nMod);
+                    }
+                }
+                if($(".J_Region").find(".J_CMod").length>1){
+                    $('.J_CMod_none').remove();
+                }
+                Visual.createBar();
+                Visual.barIni();
+            },
+            error:function(){}
+        });
+    }
+
+    //当前编辑组件
+    var _curIndex;
+</script>
+
+<script type="text/javascript" src="script/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="script/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="script/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="script/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="script/jquery.fileupload.js"></script>
+<script type="text/javascript" src="script/SERVE.com.js"></script>
+<script type="text/javascript" src="script/SERVE.bs.js"></script>
+<script type="text/javascript" src="script/visual.js"></script>
+<script type="text/javascript" src="script/visual_do.js"></script>
+<script type="text/javascript" src="script/scroll.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".displayArea").mCustomScrollbar({
+            theme:"minimal-dark"
+        });
+    })
+    $(window).bind('beforeunload',function(){
+        if(_isChange){
+            return "未保存内容会丢失";
+        }
+    });
+</script>
+</body>
+</html>

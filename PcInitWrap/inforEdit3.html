@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content="" />
+    <title>SHOW内容发布生产平台</title>
+    <link rel="stylesheet" type="text/css" href="style/common.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    <link rel="stylesheet" type="text/css" href="style/imgareaselect-default.css"/>
+</head>
+<body>
+<div class="bs-header">
+    <a class="qs-logo" href="#"><img src="images/qs-logo.png" alt=""/></a>
+    <div class="qs-user">
+        <img src="temp/img_50X50.jpg" alt=""/>
+        <div class="info">
+            <p class="name">小妹猪猪侠</p>
+            <p class="sign">生活小能手</p>
+        </div>
+        <div class="status">
+            <div class="sta"><span>已认证</span></div>
+            <a href="#">退出</a>
+        </div>
+    </div>
+</div>
+<div class="bs-wrap qs-wrap">
+    <div class="bs-main">
+        <div class="qs-content">
+            <div class="qs-main">
+                <div class="qs-infor">
+                    <div class="user-pro">
+                        <dl class="clearfix">
+                            <dt>头像设置：</dt>
+                            <dd>
+                                <div class="img-edit">
+                                    <p class="upload-img">
+                                        <a href="#">点击上传</a>
+                                        <input type="file"/>
+                                    </p>
+                                    <div class="edit-wrap clearfix">
+                                        <div class="cut-pic">
+                                            <div class="cut-wrap" id="cutPicWrap">
+                                                <div class="pic"><img id="oldImg" src="temp/img_750X750.jpg" /></div>
+                                            </div>
+                                            <p class="choose-tip">建议尺寸：120*120，格式：png/jpg/jpeg</p>
+                                        </div>
+                                        <div class="browse-pic">
+                                            <div class="pic"><img id="newImg" src="temp/img_750X750.jpg" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>昵称设置：</dt>
+                            <dd>
+                                <input class="qs-user-inp" type="text" maxlength="12"/>
+                                <p class="choose-tip">(12个汉字.字母之内)</p>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>个性签名设置：</dt>
+                            <dd>
+                                <input class="qs-user-inp" type="text" maxlength="12"/>
+                                <p class="choose-tip">(12个汉字.字母之内)</p>
+                            </dd>
+                        </dl>
+
+                        <dl class="clearfix">
+                            <dt></dt>
+                            <dd>
+                                <button type="submit" class="submit-btn">提交</button>
+                                <button type="button" class="cancel-btn">取消</button>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="qs-menu-wrap">
+        <div class="qs-menu">
+            <dl class="cur">
+                <dt class="menu1"><i></i><span>管理</span><em></em></dt>
+                <dd>
+                    <a href="#">内容管理</a>
+                    <a href="#">评论管理</a>
+                </dd>
+            </dl>
+            <dl class="cur">
+                <dt class="menu2"><i></i><span>统计</span><em></em></dt>
+                <dd>
+                    <a href="#">内容管理</a>
+                    <a href="#">评论管理</a>
+                </dd>
+            </dl>
+            <dl class="cur">
+                <dt class="menu3"><i></i><span>设置</span><em></em></dt>
+                <dd>
+                    <a class="on" href="#">基本信息</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="script/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="script/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="script/SERVE.com.js"></script>
+<script type="text/javascript" src="script/SERVE.bs.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var imgarea1 = SERVE.bs.imgArea('oldImg','newImg','cutPicWrap',120,120);
+        console.log(imgarea1.getData());
+    })
+</script>
+</body>
+</html>
